@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'bicep-react-app'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ABD91DC77AA840CA9F54449BEBCB21F4 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_01653E657D1A4B4B9B4B6462DA8079C2 }}
           package: .
