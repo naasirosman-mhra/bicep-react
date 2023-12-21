@@ -6,7 +6,7 @@
             "value": "dummy-prod"
         },
         "location": {
-            "value": "centralus"
+            "value": "eastus"
         },
         "sku": {
             "value": "Free"
