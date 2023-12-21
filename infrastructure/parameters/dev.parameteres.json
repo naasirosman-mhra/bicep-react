@@ -5,7 +5,7 @@
         "name": {
             "value": "dummy-dev"
         },
-        "location": {
+        "location": {  
             "value": "centralus" 
         },
         "sku": { 
