@@ -6,7 +6,7 @@ param repositoryUrl string
 param branch string
 
 @secure()
-param repositoryToken string
+param repositoryToken string 
 param appLocation string
 param apiLocation string
 param appArtifactLocation string
