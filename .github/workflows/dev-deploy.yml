@@ -29,7 +29,7 @@ jobs:
     
       - name: Deploy with az bicep
         run: |
-          az login --username ${{ secrets.AZURE_USERNAME }}--password ${{ secrets.AZURE_PASSWORD }}
+          az login --username ${{ secrets.AZURE_USERNAME }} --password ${{ secrets.AZURE_PASSWORD }}
           az bicep build 'infrastructure/main.bicep'
           az bicep deploy --resource-group dummy-1_group --template-file 'infrastructure/main.bicep' --parameters 'infrastructure/parameters/prod.parameters.json'
 
