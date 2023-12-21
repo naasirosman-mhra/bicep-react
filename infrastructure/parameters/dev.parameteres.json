@@ -8,7 +8,7 @@
         "location": {  
             "value": "centralus"  
         },
-        "sku": { 
+        "sku": {  
             "value": "Free"
         },
         "skucode": {
