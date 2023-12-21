@@ -6,9 +6,9 @@
             "value": "dummy-dev"
         },
         "location": {
-            "value": "centralus"
+            "value": "centralus" 
         },
-        "sku": {
+        "sku": { 
             "value": "Free"
         },
         "skucode": {
