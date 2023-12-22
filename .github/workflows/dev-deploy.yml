@@ -34,7 +34,7 @@ jobs:
       - name: Deploy with az bicep
         id: deploy
         run: |
-          az deployment sub create --location 'eastus' --template-file 'infrastructure/main.bicep' --parameters 'infrastructure/parameters/dev.parameters.json'
+          az deployment sub what-if --location 'eastus' --template-file 'infrastructure/main.bicep' --parameters 'infrastructure/parameters/dev.parameters.json'
 
 
   close_pull_request_job:
