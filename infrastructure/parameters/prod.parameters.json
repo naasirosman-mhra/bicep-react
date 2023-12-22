@@ -9,7 +9,7 @@
             "value": "eastus"
         },   
         "sku": {  
-            "value": "Free" 
+            "value": "Free"  
         }, 
         "skucode": { 
             "value": "Free"
