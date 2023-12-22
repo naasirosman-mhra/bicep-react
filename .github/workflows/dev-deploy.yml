@@ -35,8 +35,7 @@ jobs:
       - name: Deploy with az bicep
         id: deploy
         run: |
-          az deployment sub what-if --location 'eastus' --template-file 'infrastructure/main.bicep' --parameters 'infrastructure/parameters/dev.parameters.json'
-
+          az deployment group create --resource-group dummy-1_group --template-file infrastructure/main.bicep --parameters 'infrastructure/parameters/dev.parameters.json'
 
   close_pull_request_job:
     # if: github.event_name == 'pull_request' && github.event.action == 'closed'
