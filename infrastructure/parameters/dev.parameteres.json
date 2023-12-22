@@ -24,7 +24,7 @@
             "value": null
         },
         "appLocation": {
-            "value": "/"
+            "value": "/" 
         },
         "apiLocation": { 
             "value": ""

@@ -8,7 +8,7 @@
         "location": {
             "value": "eastus"
         },   
-        "sku": { 
+        "sku": {  
             "value": "Free" 
         }, 
         "skucode": {
