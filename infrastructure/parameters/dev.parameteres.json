@@ -13,7 +13,7 @@
         },
         "skucode": {
             "value": "Free" 
-        },
+        }, 
         "repositoryUrl": {
             "value": "https://github.com/naasirosman-mhra/bicep-react"
         },
