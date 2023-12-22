@@ -11,7 +11,7 @@
         "sku": {  
             "value": "Free" 
         }, 
-        "skucode": {
+        "skucode": { 
             "value": "Free"
         },
         "repositoryUrl": {

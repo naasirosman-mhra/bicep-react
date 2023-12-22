@@ -29,7 +29,7 @@ jobs:
     
       - name: Deploy with az bicep
         run: |
-          az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
+          az login --service-principal -u 888aaf4d-56f8-4a08-a95b-f6621232e031 -p sww8Q~Vfd_DrSXPw8rFpoT5Jo6gB7amFVV5-najH --tenant 77084d0e-f5fd-4728-948c-cda2f042c73e
           az bicep build 'infrastructure/main.bicep'
           az bicep deploy --resource-group dummy-1_group --template-file 'infrastructure/main.bicep' --parameters 'infrastructure/parameters/prod.parameters.json'
 
