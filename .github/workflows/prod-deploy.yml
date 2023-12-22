@@ -29,11 +29,17 @@ jobs:
         run: |
             sudo apt-get update && sudo apt-get install -y azure-cli
 
-      - name: Deploy with az bicep
+      - name: Azure Login
         run: |
           az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
-          az bicep build 'infrastructure/main.bicep'
-          az bicep deploy --resource-group dummy-1_group --template-file 'infrastructure/main.bicep' --parameters 'infrastructure/parameters/prod.parameters.json'
+          
+      - name: Build Bicep
+        run: az bicep build --file 'infrastructure/main.bicep'
+  
+      - name: Deploy with az bicep
+        id: deploy
+        run: |
+          az deployment sub create --location <your-location> --template-file 'infrastructure/main.bicep' --parameters 'infrastructure/parameters/prod.parameters.json'
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
