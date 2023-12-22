@@ -11,12 +11,11 @@ on:
     branches:
       - main
     paths:
-      - 'infrastructure/parameters/dev.parameters.json'
-  workflow_dispatch:    
+      - 'infrastructure/parameters/dev.parameters.json' 
 
 jobs:
   build_and_deploy_job:
-    # if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
@@ -30,7 +29,7 @@ jobs:
     
       - name: Deploy with az bicep
         run: |
-          az login --service-principal -u 888aaf4d-56f8-4a08-a95b-f6621232e031 -p sww8Q~Vfd_DrSXPw8rFpoT5Jo6gB7amFVV5-najH --tenant 77084d0e-f5fd-4728-948c-cda2f042c73e
+          az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
           az bicep build 'infrastructure/main.bicep'
           az bicep deploy --resource-group dummy-1_group --template-file 'infrastructure/main.bicep' --parameters 'infrastructure/parameters/prod.parameters.json'
 
