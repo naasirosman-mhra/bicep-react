@@ -31,9 +31,6 @@
         },
         "appArtifactLocation": {
             "value": ""
-        },
-        "areStaticSitesDistributedBackendsEnabled": {
-            "value": true
         }
     }
 }
