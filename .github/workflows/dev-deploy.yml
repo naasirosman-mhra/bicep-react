@@ -21,12 +21,12 @@ jobs:
       - name: Azure Login
         run: |
           az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
-          az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - name: Build Bicep
-        run: az bicep build --file 'infrastructure/main.bicep'
-
-      - name: Deploy with az bicep
-        id: deploy
-        run: |
-          az deployment group create --resource-group dummy-1_group --template-file infrastructure/main.bicep --parameters 'infrastructure/parameters/dev.parameters.json' repositoryToken=${{ secrets.REPO_TOKEN }}
+      - name: "Deploy Bicep File"
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          resourceGroupName: dummy-1_group
+          template: infrastructure/main.bicep
+          parameters: 'repositoryToken=${{ secrets.REPO_TOKEN }}'
+          failOnStdErr: false          
