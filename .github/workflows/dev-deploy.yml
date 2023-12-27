@@ -28,5 +28,5 @@ jobs:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           resourceGroupName: dummy-1_group
           template: infrastructure/main.bicep
-          parameters: 'infrastructure/parameters/dev.paramters.json repositoryToken=${{ secrets.REPO_TOKEN }}'
+          parameters: 'infrastructure/parameters/dev.parameters.json repositoryToken=${{ secrets.REPO_TOKEN }}'
           failOnStdErr: false          
