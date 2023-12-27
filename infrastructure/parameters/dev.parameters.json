@@ -20,10 +20,6 @@
         "branch": {
             "value": "main"
         },
-        "repositoryToken": {
-            "value": "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"
-
-        },
         "appLocation": {
             "value": "/" 
         },
