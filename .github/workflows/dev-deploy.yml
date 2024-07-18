@@ -37,6 +37,7 @@ jobs:
             npm install
             npm run build
             az staticwebapp create \
+            --name dummy-dev
             --resource-group dummy-1_group \
             --app-location "./src" \
             --branch main \
