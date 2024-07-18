@@ -31,6 +31,7 @@ jobs:
           template: infrastructure/main.bicep
           parameters: 'infrastructure/parameters/prod.parameters.json repositoryToken=${{ secrets.REPO_TOKEN }}'
           failOnStdErr: false 
+
       - name: Build App
         run: | 
           npm install
@@ -39,7 +40,7 @@ jobs:
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GREEN_BUSH_0E6693D10 }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          repo_token: ${{ secrets.REPO_TOKEN }}
           action: "upload"
           app_location: "./src"
           output_location: "build" 
