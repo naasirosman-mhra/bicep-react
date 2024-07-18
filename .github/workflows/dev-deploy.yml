@@ -31,7 +31,7 @@ jobs:
           template: infrastructure/main.bicep
           parameters: 'infrastructure/parameters/dev.parameters.json repositoryToken=${{ secrets.REPO_TOKEN }}'
           failOnStdErr: false          
-
+ 
       - name: Build App
         run: | 
             npm install
