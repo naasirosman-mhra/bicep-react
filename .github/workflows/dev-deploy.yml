@@ -22,11 +22,6 @@ jobs:
       - name: Azure Login
         run: |
           az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
-       
-      - name: Build
-        run: | 
-            npm install
-            npm run build
 
       - name: "Deploy Bicep File"
         uses: azure/arm-deploy@v1  
@@ -36,3 +31,14 @@ jobs:
           template: infrastructure/main.bicep
           parameters: 'infrastructure/parameters/dev.parameters.json repositoryToken=${{ secrets.REPO_TOKEN }}'
           failOnStdErr: false          
+
+      - name: Build App
+        run: | 
+            npm install
+            npm run build
+            az staticwebapp create \
+            --resource-group dummy-1_grou \
+            --source ./src \
+            --app-location "./" \
+            --branch main \
+            --token ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
