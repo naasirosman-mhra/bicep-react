@@ -7,7 +7,7 @@ on:
     paths:
       - 'infrastructure/**'
       - '.github/workflows/**'
-      
+
 
 jobs:
   build_and_deploy_job:
@@ -23,7 +23,9 @@ jobs:
         run: |
           az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
        
-
+      - name: Build
+        run: npm run build
+        
       - name: "Deploy Bicep File"
         uses: azure/arm-deploy@v1  
         with: 
